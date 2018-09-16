@@ -5,12 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import jpl.Query;
+import org.jpl7.Query;
+import org.jpl7.Term;
+
+import java.util.Map;
 
 public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
+
     }
 
     public void start(Stage primaryStage) throws Exception {
