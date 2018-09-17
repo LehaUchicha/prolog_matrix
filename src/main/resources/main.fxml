@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.sstu.controller.MainController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.sstu.controller.MainController">
     <children>
         <VBox prefHeight="184.0" prefWidth="600.0">
             <children>
@@ -18,9 +22,23 @@
                         </ScrollPane>
                         <VBox prefHeight="201.0" prefWidth="117.0">
                             <children>
-                                <Button mnemonicParsing="false" text="Транспонировать" />
-                                <Button mnemonicParsing="false" text="Инвертировать" />
-                                <Button mnemonicParsing="false" onAction="#sum" text="Сумма" />
+                                <Button mnemonicParsing="false" onAction="#choleskyDecomposition" text="Декомпоз. Холецкого" />
+                                <Button mnemonicParsing="false" onAction="#invert" text="Инвертировать" />
+                                <GridPane>
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Button mnemonicParsing="false" onAction="#sum" text="+" GridPane.columnIndex="1" />
+                                        <Button mnemonicParsing="false" onAction="#diff" text="-" />
+                                        <Button mnemonicParsing="false" onAction="#mult" text="*" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    </children>
+                                </GridPane>
                             </children>
                         </VBox>
                         <ScrollPane prefHeight="201.0" prefWidth="233.0">
@@ -30,22 +48,23 @@
                         </ScrollPane>
                     </children>
                 </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
-               <children>
-                      <HBox prefHeight="42.0" prefWidth="367.0">
-                          <children>
-                              <Button mnemonicParsing="false" onAction="#addRow" text="Добавить строку" />
-                              <Button mnemonicParsing="false" onAction="#addColumn" text="Добавить столбец" />
-                          </children>
-                      </HBox>
-                  <HBox prefHeight="42.0" prefWidth="275.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#addRowSec" text="Добавить строку" />
-                        <Button mnemonicParsing="false" onAction="#addColumnSec" text="Добавить столбец" />
-                     </children>
-                  </HBox>
-               </children>
-            </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <HBox prefHeight="42.0" prefWidth="367.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#addRow" text="Строка+" />
+                                <Button mnemonicParsing="false" onAction="#addColumn" text="Столбец+" />
+                        <Button mnemonicParsing="false" onAction="#determinant" text="Определитель" />
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="42.0" prefWidth="275.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#addRowSec" text="Строка+" />
+                                <Button mnemonicParsing="false" onAction="#addColumnSec" text="Столбец+" />
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
             </children>
         </VBox>
         <HBox layoutY="184.0" prefHeight="212.0" prefWidth="600.0">
@@ -55,6 +74,7 @@
                         <Pane fx:id="resultMatrix" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
                     </content>
                 </ScrollPane>
+            <Label fx:id="determinantLabel" />
             </children>
         </HBox>
     </children>
