@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.sstu.controller.MainController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.sstu.controller.MainController">
     <children>
         <VBox prefHeight="184.0" prefWidth="600.0">
             <children>
@@ -23,6 +23,7 @@
                         <VBox prefHeight="201.0" prefWidth="117.0">
                             <children>
                                 <Button mnemonicParsing="false" onAction="#choleskyDecomposition" text="Декомпоз. Холецкого" />
+                        <Button mnemonicParsing="false" onAction="#invert_triangle" text="Инверт. трианг" />
                                 <Button mnemonicParsing="false" onAction="#invert" text="Инвертировать" />
                                 <GridPane>
                                     <columnConstraints>
@@ -39,6 +40,7 @@
                                         <Button mnemonicParsing="false" onAction="#mult" text="*" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     </children>
                                 </GridPane>
+                        <Button mnemonicParsing="false" onAction="#reset" text="Сброс" />
                             </children>
                         </VBox>
                         <ScrollPane prefHeight="201.0" prefWidth="233.0">

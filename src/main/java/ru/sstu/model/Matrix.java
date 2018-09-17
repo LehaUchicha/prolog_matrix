@@ -6,30 +6,30 @@ import java.util.stream.Stream;
 
 public class Matrix {
 
-    private Map<Integer, List<Integer>> matrix;
+    private Map<Integer, List<Double>> matrix;
 
     public Matrix(int rows) {
-        this.matrix = new HashMap<Integer, List<Integer>>();
+        this.matrix = new HashMap<Integer, List<Double>>();
         for (int i = 0; i < rows; i++) {
-            List<Integer> list = new ArrayList<>();
+            List<Double> list = new ArrayList<>();
             for (int j = 0; j < rows; j++) {
-                list.add(0);
+                list.add(0.0);
             }
             matrix.put(i, list);
         }
     }
 
     public Matrix() {
-        this.matrix = new HashMap<Integer, List<Integer>>();
+        this.matrix = new HashMap<Integer, List<Double>>();
     }
 
     public void addRow() {
         if (matrix.size() == 0)
-            matrix.put(0, Stream.of(0).collect(Collectors.toList()));
+            matrix.put(0, Stream.of(0.0).collect(Collectors.toList()));
         else {
-            List<Integer> row = new ArrayList<>();
+            List<Double> row = new ArrayList<>();
             for (int i = 0; i < matrix.get(0).size(); i++) {
-                row.add(0);
+                row.add(0.0);
             }
             matrix.put(matrix.keySet().size(), row);
         }
@@ -39,26 +39,26 @@ public class Matrix {
         if (matrix.size() == 0)
             addRow();
         else
-            matrix.values().forEach(row -> row.add(0));
+            matrix.values().forEach(row -> row.add(0.0));
     }
 
-    public void fillRow(Integer rowNumber, List<Integer> row) {
+    public void fillRow(Integer rowNumber, List<Double> row) {
         matrix.put(rowNumber, row);
     }
 
-    public void fillRow(List<Integer> row) {
+    public void fillRow(List<Double> row) {
         matrix.put(matrix.size(), row);
     }
 
-    public List<Integer> getRow(Integer rowNumber) {
+    public List<Double> getRow(Integer rowNumber) {
         return matrix.get(rowNumber);
     }
 
-    public Integer getElement(Integer rowNumber, Integer columnNumber) {
+    public Double getElement(Integer rowNumber, Integer columnNumber) {
         return matrix.get(rowNumber).get(columnNumber);
     }
 
-    public Integer setElement(Integer rowNumber, Integer columnNumber, Integer value) {
+    public Double setElement(Integer rowNumber, Integer columnNumber, Double value) {
         return matrix.get(rowNumber).set(columnNumber, value);
     }
 

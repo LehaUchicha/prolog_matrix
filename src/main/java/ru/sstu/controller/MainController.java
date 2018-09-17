@@ -99,6 +99,12 @@ public class MainController implements Initializable {
         graphic.drawMatrix(resultMatrix, result);
     }
 
+    public void invert_triangle(ActionEvent actionEvent) {
+        updateData();
+        Matrix result = matrixService.invertTriang(firstMatrixData);
+        graphic.drawMatrix(resultMatrix, result);
+    }
+
     public void choleskyDecomposition(ActionEvent actionEvent) {
         updateData();
         Matrix result = matrixService.choleskyDecomposition(firstMatrixData);
@@ -110,7 +116,7 @@ public class MainController implements Initializable {
         for (int i = 0; i < data.height(); i++) {
             for (int j = 0; j < data.width(); j++) {
                 TextField field = (TextField) pane.getChildren().get(count);
-                data.setElement(i, j, Integer.parseInt(field.getText()));
+                data.setElement(i, j, Double.parseDouble(field.getText()));
                 count++;
             }
         }
@@ -119,5 +125,12 @@ public class MainController implements Initializable {
     protected void updateData() {
         updateData(firstMatrix, firstMatrixData);
         updateData(secondMatrix, secondMatrixData);
+    }
+
+    public void reset(ActionEvent actionEvent) {
+        firstMatrixData = new Matrix(1);
+        secondMatrixData = new Matrix(1);
+        graphic.drawMatrix(firstMatrix, firstMatrixData);
+        graphic.drawMatrix(secondMatrix, secondMatrixData);
     }
 }

@@ -14,7 +14,7 @@ import java.util.stream.Stream;
  */
 public class MatrixService {
 
-    private static final String RESULT = "result";
+    private static final String RESULT = "M";
 
     public Matrix sum(Matrix firstMatrix, Matrix secondMatrix) {
         return operation(firstMatrix, secondMatrix, "matrix_sum");
@@ -61,6 +61,10 @@ public class MatrixService {
         return operation(matrix, "matrix_inversion");
     }
 
+    public Matrix invertTriang(Matrix matrix) {
+        return operation(matrix, "matrix_inv_triang");
+    }
+
     public Matrix choleskyDecomposition(Matrix matrix) {
         return operation(matrix, "cholesky_decomposition");
     }
@@ -90,13 +94,13 @@ public class MatrixService {
         return resultMatrix;
     }
 
-    protected List<Integer> getValue(Term term) {
-        List<Integer> list = new ArrayList<>();
+    protected List<Double> getValue(Term term) {
+        List<Double> list = new ArrayList<>();
         if (term.arg(2).isAtom()) {
-            list.add(term.arg(1).intValue());
+            list.add(term.arg(1).doubleValue());
             return list;
         }
-        list.add(term.arg(1).intValue());
+        list.add(term.arg(1).doubleValue());
         list.addAll(getValue(term.arg(2)));
         return list;
     }

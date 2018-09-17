@@ -7,6 +7,7 @@ import ru.sstu.model.Matrix;
 public class GraphicCore {
 
     public void drawMatrix(Pane panel, Matrix matrixData){
+        panel.getChildren().clear();
         for(int i =0; i< matrixData.height(); i++){
             for (int j = 0; j<matrixData.width(); j++){
                 TextField f = new TextField(matrixData.getElement(i, j)+"");
